@@ -13,7 +13,7 @@ class UserController extends Controller
         //
         return view('posts', [
            'title' => "Post by user: $author->name",
-           'posts' => $author->post,
+           'posts' => $author->post->load('category', 'user'),
         ]);
     }
 }
