@@ -18,14 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        'active' => "home",
+    ]);
 });
 
 
 Route::get('/posts', [PostController::class, "index"]);
 Route::get('/post/{post:slug}', [PostController::class, "show"]);
-
 Route::get('/categories', [CategoryController::class, "index"]);
-Route::get('/categories/{category:slug}', [CategoryController::class, "show"]);
-
-Route::get('/author/{author:username}', [UserController::class, "show"]);

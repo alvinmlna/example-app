@@ -28,6 +28,11 @@ class DatabaseSeeder extends Seeder
             'slug' => 'sql-server'
         ]);
 
+        Category::create([
+            'name' => 'Design',
+            'slug' => 'design'
+        ]);
+
         Post::factory(20)->create();
 
         // Post::create([

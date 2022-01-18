@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\Category;
+use App\Models\User;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -15,10 +17,26 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+
+        $title = '';
+
+        if(request('category')){
+            $category = Category::firstWhere('slug', request('category'));
+            $title = ' in '. $category -> name;
+        }
+
+        if(request('user')){
+            $user = User::firstWhere('username', request('user'));
+            $title = ' by '. $user -> name;
+        }
+
         return view('posts', [
-            'title' => "All Posts",
-            'posts' => Post::latest()->get()
+            'title' => "All Posts" . $title,
+            'active' => "posts",
+            'posts' => Post::latest()
+            ->filter(request(['search', 'category', 'user']))
+            ->paginate(7)
+            ->withQueryString()
         ]);
     }
 
@@ -54,6 +72,7 @@ class PostController extends Controller
     {
         return view('post', [
             'title' => "Post Detail",
+            'active' => "posts",
             'post' => $post
         ]);
     }
