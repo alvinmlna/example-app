@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +26,6 @@ Route::get('/', function () {
 Route::get('/posts', [PostController::class, "index"]);
 Route::get('/post/{post:slug}', [PostController::class, "show"]);
 Route::get('/categories', [CategoryController::class, "index"]);
+
+
+Route::get('/login', [LoginController::class, "index"]);

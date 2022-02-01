@@ -11,6 +11,10 @@
     {{-- Bootstrap Icon --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
+
+    {{-- My Style --}}
+    <link rel="stylesheet" href="/css/styles.css">
+
     <title>Hello, world!</title>
   </head>
   <body>
