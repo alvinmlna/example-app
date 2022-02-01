@@ -27,5 +27,3 @@ Route::get('/', function () {
 Route::get('/posts', [PostController::class, "index"]);
 Route::get('/post/{post:slug}', [PostController::class, "show"]);
 Route::get('/categories', [CategoryController::class, "index"]);
-
-Route::get('/')
