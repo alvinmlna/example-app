@@ -30,3 +30,4 @@ Route::get('/categories', [CategoryController::class, "index"]);
 
 Route::get('/login', [LoginController::class, "index"]);
 Route::get('/register', [RegistrationController::class, "index"]);
+Route::post('/register', [RegistrationController::class, "store"]);
