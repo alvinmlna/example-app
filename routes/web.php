@@ -32,10 +32,10 @@ Route::get('/categories', [CategoryController::class, "index"]);
 Route::get('/register', [RegistrationController::class, "index"])->middleware('guest');
 Route::post('/register', [RegistrationController::class, "store"]);
 
-
 Route::get('/login', [LoginController::class, "index"])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, "authenticate"]);
 Route::post('/logout', [LoginController::class, "logout"]);
 
-
-Route::get('/dashboard', [DashboardController::class, "index"])->middleware('auth');
+Route::get('/dashboard', function(){
+    return view('dashboard.index');
+})->middleware('auth');
