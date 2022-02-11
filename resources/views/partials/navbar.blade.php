@@ -8,13 +8,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link {{ ( $active === "home") ? 'active' : '' }}" aria-current="page" href="/">Home</a>
+                <a class="nav-link {{ Request::is('home') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ ($active === "posts") ? 'active' : '' }}" href="/posts">Blog</a>
+                <a class="nav-link {{ Request::is('posts') ? 'active' : '' }}" href="/posts">Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ ($active === "categories") ? 'active' : '' }}" href="/categories">Categories</a>
+                <a class="nav-link {{ Request::is('categories')  ? 'active' : '' }}" href="/categories">Categories</a>
             </li>
         </ul>
 
