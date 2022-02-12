@@ -20,6 +20,7 @@ class Post extends Model
         'slug',
         'excerpt',
         'body',
+        'image'
     ];
 
 

@@ -24,7 +24,17 @@
 
         @if ($posts-> count())
             <div class="card mb-3">
+
+                    
+                @if ($posts[0]->image)
+                <div style="max-height:350px; overflow:hidden;">
+                    <img src="{{ asset('storage/' .$posts[0]->image) }}" 
+                    class="card-img-top" alt="{{ $posts[0]->category->name }}">
+                </div>
+                @else
                 <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}" class="card-img-top" alt="{{ $posts[0]->category->name }}">
+                @endif
+
                 <div class="card-body text-center">
                     <h5 class="card-title">
                         <h1><a href="/post/{{ $posts[0] -> slug }}" class="text-dark" style="text-decoration:none;">{{ $posts[0] -> title }}</a>  </h1>
@@ -52,8 +62,17 @@
                     <div class="position-absolute  px-3 py-2 " style="background-color: rgba(0,0,0,0.7)">
                         <a href="/posts?category={{ $item->category->slug }}" class="text-white text-decoration-none">{{ $item->category->name }}</a>
                     </div>
+                    
 
-                    <img src="https://source.unsplash.com/500x400?{{ $item->category->name }}" class="card-img-top" alt="{{ $item->category->name }}">
+                    @if ($item->image)
+                    <div style="max-height:350px; overflow:hidden;">
+                        <img src="{{ asset('storage/' .$item->image) }}" 
+                        class="card-img-top" alt="{{ $item->category->name }}">
+                    </div>
+                    @else
+                        <img src="https://source.unsplash.com/500x400?{{ $item->category->name }}" class="card-img-top" alt="{{ $item->category->name }}">
+                    @endif
+
                     <div class="card-body">
                       <h5 class="card-title">{{ $item -> title }}</h5>
                       <p>
