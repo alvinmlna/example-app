@@ -28,10 +28,6 @@
                 <article class="my-3 fs-5">
                     {!! $post -> body !!}
                 </article>
-        
-                <p>
-                    <a href="/posts" style="text-decoration:none">back to home...</a>
-                </p>
             </article>
         </div>
     </div>
