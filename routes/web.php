@@ -1,12 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\RegistrationController;
-use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +44,5 @@ Route::get('/dashboard', function(){
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->Middleware('auth');
 Route::resource('/dashboard/posts', DashboardPostController::class)->Middleware('auth');
+
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->Middleware('admin');
